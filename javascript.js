@@ -99,10 +99,15 @@ function playGame (rounds) {
         playRound()
     }
 
-    if (humanScore > computerScore) {
+    if (humanScore == computerScore) {
+        console.log ('----DRAW----')
+        console.log ('Refresh the page to play another game')
+    } else if (humanScore > computerScore) {
         console.log ('****YOU WIN THE GAME**** :)')
-    } else {
+        console.log ('Refresh the page to play another game')
+    } else if (computerScore > humanScore) {
         console.log ('...YOU LOSE TO THE COMPUTER... :(')
+        console.log ('Refresh the page to play another game')
     }
 }
 
