@@ -90,4 +90,20 @@ function playRound (humanChoice, computerChoice ) {
     console.log ('Your Score: ' + humanScore + ' | ' + 'Computer Score: ' + computerScore);
 }
 
-playRound()
+function playGame (rounds) {
+    //play the rounds here
+    // play 5 rounds to determine the winner
+    // declare a winner at the end
+
+    for (let index = 0; index < 5; index++) {
+        playRound()
+    }
+
+    if (humanScore > computerScore) {
+        console.log ('****YOU WIN THE GAME**** :)')
+    } else {
+        console.log ('...YOU LOSE TO THE COMPUTER... :(')
+    }
+}
+
+playGame()
