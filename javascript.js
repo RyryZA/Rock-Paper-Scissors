@@ -1,33 +1,93 @@
 
+let humanScore = 0;
+let computerScore = 0;
+
+console.log ('Starting Scores: ' + 'You:' + humanScore + ' ' + 'Computer:' + computerScore);
+
 function getComputerChoice () {
     //sets the computer random choice number
     let num = Math.random();
+    let compResult = 0;
 
     //returns the play as either rock, paper or scissors
     if (num > 0.66) {
-        return 'Computer: Rock'
+        compResult = 1;
+        console.log ('Computer Chose: Rock');
+        return 1
     } else if (num < 0.66 && num > 0.33) {
-        return 'Computer: Paper'
+        compResult = 2;
+       console.log ('Computer Chose: Paper');
+        return 2
     } else {
-        return 'Computer: Scissors';
+        compResult = 3;
+        console.log ('Computer Chose: Scissors');
+        return 3
     }
     
 };
 
-
 function getHumanChoice () {
     //use a prompt to ask for user choice (1-3)
+    
     let choice = prompt ('Please enter your choice, 1 = Rock, 2 = Paper, 3 = Scissors');
+    let humanResult = 0;
+
+    //convert prompt into choice
 
     if (choice == 1) {
-        return 'You: Rock';
+        humanResult = 1;
+        console.log ('You Chose: Rock');
+        return 1;
     } else if (choice == 2) {
-        return 'You: Paper';
+        humanResult = 2;
+        console.log ('You Chose: Paper');
+        return 2;
     } else {
-        return 'You: Scissors'
+        humanResult = 3;
+        console.log ('You Chose: Scissors');
+        return 3;
     }
-    //convert prompt into choice
+
 }
 
-console.log (getHumanChoice());
-console.log (getComputerChoice());
+function playRound (humanChoice, computerChoice ) {
+    humanChoice = getHumanChoice();
+    computerChoice = getComputerChoice();
+
+
+    //work out who the winner is
+        // first check for a draw - if draw now one wins
+        //then check for winning order
+
+        //rock (1) beats scissors (3)
+        //scissors (3) beats paper (2)
+        //paper (2) beats rock (1)
+
+        //it needs to decide who the winner is
+    if (humanChoice == computerChoice) {
+        console.log ('Result: Draw');
+        return 'Draw';
+    } else if (humanChoice == 1 && computerChoice == 3) {
+        console.log ('You Win!');
+        humanScore++;
+    } else if (humanChoice == 3 && computerChoice == 1) {
+        console.log ('Result: Computer Wins!');
+        computerScore++;
+    } else if (humanChoice == 3 && computerChoice == 2) {
+        console.log ('Result: You Win!');
+        humanScore++;
+    } else if (humanChoice == 2 && computerChoice == 3) {
+        console.log ('Result: Computer Wins!');
+        computerScore++;
+    } else if (humanChoice == 2 && computerChoice == 1) {
+        console.log ('Result: You Win!');
+        humanScore++;
+    } else if (humanChoice == 1 && computerChoice == 2) {
+        console.log ('Result: Computer Wins!');
+        computerScore++;
+    }
+
+    console.log ('Your Score: ' + humanScore + ' | ' + 'Computer Score: ' + computerScore);
+}
+
+playRound()
