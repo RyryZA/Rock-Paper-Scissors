@@ -50,6 +50,10 @@ function getHumanChoice () {
 
 }
 
+function scoreResult () {
+    console.log ('Scores: ' + 'You:' + humanScore + ' ' + 'Computer:' + computerScore)
+}
+
 function playRound (humanChoice, computerChoice ) {
     humanChoice = getHumanChoice();
     computerChoice = getComputerChoice();
@@ -66,6 +70,7 @@ function playRound (humanChoice, computerChoice ) {
         //it needs to decide who the winner is
     if (humanChoice == computerChoice) {
         console.log ('Result: Draw');
+        console.log ('Scores: ' + 'You:' + humanScore + ' ' + 'Computer:' + computerScore)
         return 'Draw';
     } else if (humanChoice == 1 && computerChoice == 3) {
         console.log ('You Win!');
